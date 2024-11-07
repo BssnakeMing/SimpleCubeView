@@ -9,7 +9,7 @@
 
 # 预览
 
-![Ima_01](https://github.com/BssnakeMing/SimpleCubeView/tree/main/Image/Ima_01.png)
+![Ima_01](https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Ima_01.png)
 
 ![Img_02](https://github.com/BssnakeMing/SimpleCubeView/tree/main/Image/Img_02.png)
 
