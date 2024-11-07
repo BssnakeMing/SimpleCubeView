@@ -10,7 +10,7 @@
 # 预览
 <img src="https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Ima_01.png">
 <img src="https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Img_02.png">
-<img src="https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Ima_03.png">
+<img src="https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Img_03.png">
 
 视频：
 [Watch the video](https://github.com/username/repository/blob/main/path/to/video.mp4?raw=true)
@@ -42,7 +42,7 @@
 Project Settings ->Rendering ->Post Processing ->Custom Depth ->Tool Channel, modified to be enabled with mold.
 ```
 
-![Img_05](https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Img_05.jpg)
+![Img_05](https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Img_05.png)
 
 
 
