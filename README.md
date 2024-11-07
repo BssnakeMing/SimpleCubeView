@@ -9,14 +9,14 @@
 
 # 预览
 
-![Ima_01](https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Ima_01.png)
+![Ima_01](https://github.com/BssnakeMing/SimpleCubeView/tree/main/Image/Ima_01.png?raw=true)
 
 ![Img_02](https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Img_02.png)
 
 ![Img_03](https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Img_03.png)
 
 视频：
-
+[Watch the video](https://github.com/username/repository/blob/main/path/to/video.mp4?raw=true)
 <video src="https://youtu.be/Tkw9bYIjBvI"></video>
 
 
