@@ -8,17 +8,14 @@
 
 
 # 预览
-
-![Ima_01](https://githubusercontent.com/BssnakeMing/SimpleCubeView/tree/main/Image/Ima_01.png?raw=true)
 <img src="https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Ima_01.png">
-![Img_02](https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Img_02.png)
-
-![Img_03](https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Img_03.png)
+<img src="https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Ima_02.png">
+<img src="https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Ima_03.png">
 
 视频：
 [Watch the video](https://github.com/username/repository/blob/main/path/to/video.mp4?raw=true)
 <video src="https://youtu.be/Tkw9bYIjBvI"></video>
-
+不会插视频，搭梯子去油管吧：https://youtu.be/Tkw9bYIjBvI
 
 
 # 已知存在问题：
