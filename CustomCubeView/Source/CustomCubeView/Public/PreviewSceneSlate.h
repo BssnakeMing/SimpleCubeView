@@ -61,6 +61,7 @@ public:
 	virtual FReply OnMouseButtonDown(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent);
 	virtual FReply OnMouseButtonUp(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent);
 	virtual FReply OnMouseMove(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent);
+	virtual void OnMouseLeave(const FPointerEvent& MouseEvent) override;
 	
 	virtual FReply OnTouchMoved(const FGeometry& MyGeometry, const FPointerEvent& InTouchEvent) override;
 
@@ -162,4 +163,6 @@ private:
 	// 是否将模型渐变到PosType点位位置
 	bool bLerpTransformCube = false;
 	FTransform PosTransform;
+
+	bool bLerpRenderOpacity = false;
 };

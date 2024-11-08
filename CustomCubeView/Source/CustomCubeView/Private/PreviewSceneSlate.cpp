@@ -99,12 +99,15 @@ void SPreviewScene::Construct(const FArguments& InArgs)
 
 	SetCanTick(true);
 
-	SetRenderOpacity(0.4f);
+	
 }
 
 void SPreviewScene::Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, const float InDeltaTime)
 {
 	SImage::Tick(AllottedGeometry, InCurrentTime, InDeltaTime);
+
+	float CurrentOp = GetRenderOpacity();
+
 	if (bLerpTransformCube)
 	{
 		if (MeshTransform.Equals(PosTransform, 0.001f))
@@ -113,9 +116,27 @@ void SPreviewScene::Tick(const FGeometry& AllottedGeometry, const double InCurre
 		}
 
 		MeshTransform = UKismetMathLibrary::TLerp(MeshTransform, PosTransform, InDeltaTime * 5.f);
-
 		PreviewScenePtr->GetCubeRotatedDelegate().Broadcast(MeshTransform.GetRotation());
+
+		CurrentOp = UKismetMathLibrary::Lerp(CurrentOp, 1.f, InDeltaTime * 5.f);
+
+		SetRenderOpacity(CurrentOp);
 	}
+	else
+	{
+		if (bLerpRenderOpacity)
+		{
+			CurrentOp = UKismetMathLibrary::Lerp(CurrentOp, 1.f, InDeltaTime * 5.f);
+			SetRenderOpacity(CurrentOp);
+		}
+		else
+		{
+			CurrentOp = UKismetMathLibrary::Lerp(CurrentOp, 0.3f, InDeltaTime * 2.f);
+			SetRenderOpacity(CurrentOp);
+		}
+	}
+
+	
 
 	UpdateRendererWidgetPreview();
 }
@@ -418,7 +439,7 @@ FReply SPreviewScene::OnMouseButtonUp(const FGeometry& MyGeometry, const FPointe
 
 FReply SPreviewScene::OnMouseMove(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent)
 {
-	SetRenderOpacity(1.f);
+	bLerpRenderOpacity = true;
 
 
 	FVector2D MousePosInViewport = UWidgetLayoutLibrary::GetMousePositionOnViewport(PreviewScenePtr);
@@ -491,6 +512,12 @@ FReply SPreviewScene::OnMouseMove(const FGeometry& MyGeometry, const FPointerEve
 		return FReply::Handled();
 	}
 	return FReply::Unhandled();
+}
+
+void SPreviewScene::OnMouseLeave(const FPointerEvent& MouseEvent)
+{
+	SImage::OnMouseLeave(MouseEvent);
+	bLerpRenderOpacity = false;
 }
 
 FReply SPreviewScene::OnTouchMoved(const FGeometry& MyGeometry, const FPointerEvent& InTouchEvent)
