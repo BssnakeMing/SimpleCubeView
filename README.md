@@ -8,17 +8,12 @@
 
 
 # 预览
-
-![Ima_01](F:\Git\SimpleCubeView\README\Ima_01.png)
-
-![Img_02](F:\Git\SimpleCubeView\README\Img_02.png)
-
-![Img_03](F:\Git\SimpleCubeView\README\Img_03.png)
+<img src="https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Ima_01.png">
+<img src="https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Img_02.png">
+<img src="https://raw.githubusercontent.com/BssnakeMing/SimpleCubeView/refs/heads/main/Image/Img_03.png">
 
 视频：
-
-<video src="F:\Git\SimpleCubeView\Media\CubeView.mp4"></video>
-
+不会插视频，搭梯子去油管吧：https://youtu.be/Tkw9bYIjBvI
 
 
 # 已知存在问题：
@@ -45,7 +40,7 @@
 Project Settings ->Rendering ->Post Processing ->Custom Depth ->Tool Channel, modified to be enabled with mold.
 ```
 
-![Img_05](F:\Git\SimpleCubeView\README\Img_05.jpg)![Img_04](F:\Git\SimpleCubeView\README\Img_04.png)
+<img src="https://github.com/BssnakeMing/SimpleCubeView/blob/main/Image/Img_05.jpg">
 
 
 
