@@ -9,7 +9,7 @@
 
 #include "RendererWidget.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCubeRotatedDelegate, FRotator, CubeRotator);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCubeRotatedDelegate, FQuat, CubeRotator);
 
 
 
@@ -48,8 +48,17 @@ public:
 
 public:
 
+	///** Image to draw */
+	//UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Appearance)
+	//FSlateBrush DrawBrush;
+
+	// 输出画面
 	UPROPERTY(BlueprintReadOnly,EditAnywhere,Category="CubeView")
 	UTextureRenderTarget2D* RenderTargetTexture;
+
+	// 输出透明通道
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "CubeView")
+	UTextureRenderTarget2D* AlphaTexture;
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "CubeView")
 	TArray<FCubeDescribeDetail> CubeDetails;

@@ -20,6 +20,7 @@ TSharedRef<SWidget> URendererWidget::RebuildWidget()
 		.TouchMethod(TouchMethod)
 
 		.RenderTargetTexture(RenderTargetTexture)
+		.AlphaTexture(AlphaTexture)
 		.PreviewScenePtr(this)
 		.OutLineMaterial(OutlineMaterial)
 
@@ -44,6 +45,7 @@ void URendererWidget::SynchronizeProperties()
 		PreviewSceneImage->SynchronizeUWidget(MeshTransform,CameraTransform);
 	}
 
+	//SetBrush(DrawBrush);
 
 	Super::SynchronizeProperties();
 }

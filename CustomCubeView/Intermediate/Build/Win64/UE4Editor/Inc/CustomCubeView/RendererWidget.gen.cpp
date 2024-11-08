@@ -15,13 +15,14 @@ void EmptyLinkFunctionForGeneratedCodeRendererWidget() {}
 // Cross Module References
 	CUSTOMCUBEVIEW_API UFunction* Z_Construct_UDelegateFunction_CustomCubeView_CubeRotatedDelegate__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_CustomCubeView();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FQuat();
 	CUSTOMCUBEVIEW_API UClass* Z_Construct_UClass_URendererWidget_NoRegister();
 	CUSTOMCUBEVIEW_API UClass* Z_Construct_UClass_URendererWidget();
 	UMG_API UClass* Z_Construct_UClass_UImage();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 	ENGINE_API UClass* Z_Construct_UClass_UTextureRenderTarget2D_NoRegister();
 	CUSTOMCUBEVIEW_API UScriptStruct* Z_Construct_UScriptStruct_FCubeDescribeDetail();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FTransform();
@@ -34,7 +35,7 @@ void EmptyLinkFunctionForGeneratedCodeRendererWidget() {}
 	{
 		struct _Script_CustomCubeView_eventCubeRotatedDelegate_Parms
 		{
-			FRotator CubeRotator;
+			FQuat CubeRotator;
 		};
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_CubeRotator;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -43,7 +44,7 @@ void EmptyLinkFunctionForGeneratedCodeRendererWidget() {}
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_CustomCubeView_CubeRotatedDelegate__DelegateSignature_Statics::NewProp_CubeRotator = { "CubeRotator", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CustomCubeView_eventCubeRotatedDelegate_Parms, CubeRotator), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_CustomCubeView_CubeRotatedDelegate__DelegateSignature_Statics::NewProp_CubeRotator = { "CubeRotator", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_CustomCubeView_eventCubeRotatedDelegate_Parms, CubeRotator), Z_Construct_UScriptStruct_FQuat, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_CustomCubeView_CubeRotatedDelegate__DelegateSignature_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_CustomCubeView_CubeRotatedDelegate__DelegateSignature_Statics::NewProp_CubeRotator,
 	};
@@ -310,6 +311,10 @@ void EmptyLinkFunctionForGeneratedCodeRendererWidget() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_RenderTargetTexture_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_RenderTargetTexture;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AlphaTexture_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_AlphaTexture;
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_CubeDetails_Inner;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CubeDetails_MetaData[];
@@ -367,10 +372,21 @@ void EmptyLinkFunctionForGeneratedCodeRendererWidget() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_URendererWidget_Statics::NewProp_RenderTargetTexture_MetaData[] = {
 		{ "Category", "CubeView" },
+		{ "Comment", "// \xe8\xbe\x93\xe5\x87\xba\xe7\x94\xbb\xe9\x9d\xa2\n" },
 		{ "ModuleRelativePath", "Public/RendererWidget.h" },
+		{ "ToolTip", "\xe8\xbe\x93\xe5\x87\xba\xe7\x94\xbb\xe9\x9d\xa2" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_URendererWidget_Statics::NewProp_RenderTargetTexture = { "RenderTargetTexture", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(URendererWidget, RenderTargetTexture), Z_Construct_UClass_UTextureRenderTarget2D_NoRegister, METADATA_PARAMS(Z_Construct_UClass_URendererWidget_Statics::NewProp_RenderTargetTexture_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_URendererWidget_Statics::NewProp_RenderTargetTexture_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_URendererWidget_Statics::NewProp_AlphaTexture_MetaData[] = {
+		{ "Category", "CubeView" },
+		{ "Comment", "// \xe8\xbe\x93\xe5\x87\xba\xe9\x80\x8f\xe6\x98\x8e\xe9\x80\x9a\xe9\x81\x93\n" },
+		{ "ModuleRelativePath", "Public/RendererWidget.h" },
+		{ "ToolTip", "\xe8\xbe\x93\xe5\x87\xba\xe9\x80\x8f\xe6\x98\x8e\xe9\x80\x9a\xe9\x81\x93" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_URendererWidget_Statics::NewProp_AlphaTexture = { "AlphaTexture", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(URendererWidget, AlphaTexture), Z_Construct_UClass_UTextureRenderTarget2D_NoRegister, METADATA_PARAMS(Z_Construct_UClass_URendererWidget_Statics::NewProp_AlphaTexture_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_URendererWidget_Statics::NewProp_AlphaTexture_MetaData)) };
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_URendererWidget_Statics::NewProp_CubeDetails_Inner = { "CubeDetails", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FCubeDescribeDetail, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_URendererWidget_Statics::NewProp_CubeDetails_MetaData[] = {
@@ -437,6 +453,7 @@ void EmptyLinkFunctionForGeneratedCodeRendererWidget() {}
 	const UE4CodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_URendererWidget_Statics::NewProp_CubeRotated = { "CubeRotated", nullptr, (EPropertyFlags)0x0010000010080000, UE4CodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(URendererWidget, CubeRotated), Z_Construct_UDelegateFunction_CustomCubeView_CubeRotatedDelegate__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_URendererWidget_Statics::NewProp_CubeRotated_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_URendererWidget_Statics::NewProp_CubeRotated_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_URendererWidget_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_URendererWidget_Statics::NewProp_RenderTargetTexture,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_URendererWidget_Statics::NewProp_AlphaTexture,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_URendererWidget_Statics::NewProp_CubeDetails_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_URendererWidget_Statics::NewProp_CubeDetails,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_URendererWidget_Statics::NewProp_MeshTransform,
@@ -474,7 +491,7 @@ void EmptyLinkFunctionForGeneratedCodeRendererWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(URendererWidget, 4223488815);
+	IMPLEMENT_CLASS(URendererWidget, 2399535738);
 	template<> CUSTOMCUBEVIEW_API UClass* StaticClass<URendererWidget>()
 	{
 		return URendererWidget::StaticClass();

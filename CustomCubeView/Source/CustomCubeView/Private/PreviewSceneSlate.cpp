@@ -33,6 +33,7 @@ void SPreviewScene::Construct(const FArguments& InArgs)
 
 	RenderScene = MakeShareable(new FRendererWidgitPreviewScene());
 	UWorld* RenderWorld = RenderScene->GetWorld();
+
 #pragma region CaptureComponent
 	// 添加摄像头
 	CaptureComponent = NewObject<USceneCaptureComponent2D>(RenderWorld,TEXT("CaptureComponent"));
@@ -49,6 +50,13 @@ void SPreviewScene::Construct(const FArguments& InArgs)
 
 	RenderScene->AddComponent(CaptureComponent, CameraTransform);
 
+	// 新增另一捕获，用于捕获Alpha
+	AlphaCaptureComp = NewObject<USceneCaptureComponent2D>(RenderWorld, TEXT("AlphaCaptureComp"));
+	AlphaCaptureComp->TextureTarget = InArgs._AlphaTexture;
+	AlphaCaptureComp->CaptureSource = ESceneCaptureSource::SCS_SceneColorHDR;
+	AlphaCaptureComp->FOVAngle = 30.f;
+
+	RenderScene->AddComponent(AlphaCaptureComp, CameraTransform);
 #pragma endregion CaptureComponent
 
 #pragma region PostComponent
@@ -84,24 +92,10 @@ void SPreviewScene::Construct(const FArguments& InArgs)
 
 			forIndex++;
 		}
-
-
-		/*for (int i = 0 ; i< InArgs._CubeDetail.Num();i++)
-		{
-			UStaticMesh* Mesh = InArgs._CubeMesh[i];
-			FName MeshTag = FName(*InArgs._CubeMeshTags[i]);
-
-			FString MeshName = FString("MeshComp_") + FString::FromInt(i);
-			auto MeshComponent = NewObject<UStaticMeshComponent>(RenderWorld, *MeshName);
-			MeshComponent->SetStaticMesh(Mesh);
-			MeshComponent->ComponentTags.Add(MeshTag);
-
-			RenderScene->AddComponent(MeshComponent, MeshTransform);
-			MeshComponents.Add(MeshComponent);
-		}*/
 	}
 
 	CaptureComponent->UpdateSceneCaptureContents(RenderScene->GetScene());
+	AlphaCaptureComp->UpdateSceneCaptureContents(RenderScene->GetScene());
 
 	SetCanTick(true);
 
@@ -120,11 +114,9 @@ void SPreviewScene::Tick(const FGeometry& AllottedGeometry, const double InCurre
 
 		MeshTransform = UKismetMathLibrary::TLerp(MeshTransform, PosTransform, InDeltaTime * 5.f);
 
-		PreviewScenePtr->GetCubeRotatedDelegate().Broadcast(MeshTransform.Rotator());
+		PreviewScenePtr->GetCubeRotatedDelegate().Broadcast(MeshTransform.GetRotation());
 	}
 
-
-	// 这个放置最后
 	UpdateRendererWidgetPreview();
 }
 
@@ -494,11 +486,16 @@ FReply SPreviewScene::OnMouseMove(const FGeometry& MyGeometry, const FPointerEve
 
 		// 更新 MeshTransform 的旋转部分
 		MeshTransform.SetRotation(NewWorldRotation);
-		PreviewScenePtr->GetCubeRotatedDelegate().Broadcast(NewWorldRotation.Rotator());
+		PreviewScenePtr->GetCubeRotatedDelegate().Broadcast(NewWorldRotation);
 
 		return FReply::Handled();
 	}
 	return FReply::Unhandled();
+}
+
+FReply SPreviewScene::OnTouchMoved(const FGeometry& MyGeometry, const FPointerEvent& InTouchEvent)
+{
+	return OnMouseMove(MyGeometry, InTouchEvent);
 }
 
 void SPreviewScene::Press()
@@ -529,6 +526,9 @@ void SPreviewScene::UpdateRendererWidgetPreview() const
 
 	CaptureComponent->SetWorldTransform(CameraTransform);
 	CaptureComponent->UpdateSceneCaptureContents(RenderScene->GetScene());
+
+	AlphaCaptureComp->SetWorldTransform(CameraTransform);
+	AlphaCaptureComp->UpdateSceneCaptureContents(RenderScene->GetScene());
 }
 
 void SPreviewScene::SynchronizeUWidget(FTransform mMeshTransform, FTransform mCameraTransform)

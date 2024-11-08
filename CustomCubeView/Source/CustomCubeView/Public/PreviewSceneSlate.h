@@ -39,6 +39,7 @@ public:
 
 		// 捕获到的画面绘制到这里，这个变量将不保存，需要的可以取消注释
 		SLATE_ARGUMENT(UTextureRenderTarget2D*, RenderTargetTexture)
+		SLATE_ARGUMENT(UTextureRenderTarget2D*, AlphaTexture)
 		// 描边材质
 		SLATE_ARGUMENT(UMaterialInterface*, OutLineMaterial)
 
@@ -60,8 +61,8 @@ public:
 	virtual FReply OnMouseButtonDown(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent);
 	virtual FReply OnMouseButtonUp(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent);
 	virtual FReply OnMouseMove(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent);
-	/*virtual void OnMouseEnter(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent);
-	virtual void OnMouseLeave(const FPointerEvent& MouseEvent);*/
+	
+	virtual FReply OnTouchMoved(const FGeometry& MyGeometry, const FPointerEvent& InTouchEvent) override;
 
 protected:
 	/** Press the button */
@@ -135,13 +136,7 @@ protected:
 
 protected:
 	// 这里放置UWidget传递进来的参数
-
 	URendererWidget* PreviewScenePtr = nullptr;
-
-	//UTextureRenderTarget2D* RenderTargetTexture;
-
-	//// Cube模型
-	//TMap<UStaticMesh*,> CubeMesh;
 
 	// 模型在异世界的位置
 	FTransform MeshTransform;
@@ -157,6 +152,8 @@ private:
 
 	USceneCaptureComponent2D* CaptureComponent = nullptr;
 	ESceneCaptureSource CaptureSource = ESceneCaptureSource::SCS_FinalColorHDR;
+
+	USceneCaptureComponent2D* AlphaCaptureComp = nullptr;
 
 	TSharedPtr<FRendererWidgitPreviewScene> RenderScene;
 

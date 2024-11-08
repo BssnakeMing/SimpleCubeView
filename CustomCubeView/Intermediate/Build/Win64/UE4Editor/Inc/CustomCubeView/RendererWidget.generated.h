@@ -8,10 +8,11 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-struct FRotator;
+struct FQuat;
 struct FVector2D;
 struct FVector;
 struct FHitResult;
+struct FRotator;
 #ifdef CUSTOMCUBEVIEW_RendererWidget_generated_h
 #error "RendererWidget.generated.h already included, missing '#pragma once' in RendererWidget.h"
 #endif
@@ -20,9 +21,9 @@ struct FHitResult;
 #define HostProject_Plugins_CustomCubeView_Source_CustomCubeView_Public_RendererWidget_h_12_DELEGATE \
 struct _Script_CustomCubeView_eventCubeRotatedDelegate_Parms \
 { \
-	FRotator CubeRotator; \
+	FQuat CubeRotator; \
 }; \
-static inline void FCubeRotatedDelegate_DelegateWrapper(const FMulticastScriptDelegate& CubeRotatedDelegate, FRotator CubeRotator) \
+static inline void FCubeRotatedDelegate_DelegateWrapper(const FMulticastScriptDelegate& CubeRotatedDelegate, FQuat CubeRotator) \
 { \
 	_Script_CustomCubeView_eventCubeRotatedDelegate_Parms Parms; \
 	Parms.CubeRotator=CubeRotator; \

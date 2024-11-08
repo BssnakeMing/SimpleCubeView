@@ -25,7 +25,7 @@ void EmptyLinkFunctionForGeneratedCodeCustomCubeView_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xE6F93A8F,
+				0x87ACDEF1,
 				0xF3138BB2,
 				METADATA_PARAMS(nullptr, 0)
 			};
